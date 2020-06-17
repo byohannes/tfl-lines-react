@@ -1,0 +1,8 @@
+.header{
+    font-size: 3rem;
+    text-align: center;
+    border-style: outset;
+    margin-top: 2rem;
+    background-color: rgb(118, 108, 128);
+    box-shadow: 0 0 6px 0.1px rgba(0, 0, 0, 0.75);
+}
