@@ -40,21 +40,32 @@ function App () {
 
   return (
     <div className="App">
-      {/*<Header />*/}
-      <Dropdown
-        defaultOption="Choose a Mode of Transport..."
-        options={modes}
-        changeHandler={handleModeChange}
-        labelFieldName={'modeName'}
-      />
+      <Header />
 
-      {transportLines.length > 0 &&
-        <Dropdown
-          defaultOption="Choose a Line..."
-          options={transportLines}
-          changeHandler={handleLineChange}
-          labelFieldName={'name'}
-        />}
+      <p className="route">
+        Choose Mean of Transport :
+        <span>
+          <Dropdown
+            defaultOption="Choose a Mode of Transport..."
+            options={modes}
+            changeHandler={handleModeChange}
+            labelFieldName={'modeName'}
+          />
+        </span>
+      </p>
+      <p className="route">
+        Choose Line of Transport :
+        <span>
+          {transportLines.length > 0 &&
+            <Dropdown
+              defaultOption="Choose a Line..."
+              options={transportLines}
+              changeHandler={handleLineChange}
+              labelFieldName={'name'}
+            />}
+        </span>
+      </p>
+
       {selectedModeName &&
         <p className="info">
 
@@ -67,10 +78,19 @@ function App () {
         </p>}
       {selectedLineData &&
         <React.Fragment>
-          <p>
-            Start of Line :<span> {selectedLineData.originationName} </span>
+          <p className="route">
+            Start of Line :
+            <span className="route-span">
+              {' '}{selectedLineData.originationName}{' '}
+            </span>
           </p>
-          <p>End of Line : <span> {selectedLineData.destinationName} </span></p>
+          <p className="route">
+            End of Line :
+            {' '}
+            <span className="route-span">
+              {' '}{selectedLineData.destinationName}{' '}
+            </span>
+          </p>
         </React.Fragment>}
 
     </div>

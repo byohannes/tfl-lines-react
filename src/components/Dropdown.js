@@ -3,7 +3,7 @@ import React from 'react';
 const Dropdown = ({defaultOption, options, labelFieldName, changeHandler}) => {
   return (
     <select
-      className={'select-bar'}
+      className="select-menu"
       onChange={event => changeHandler (event.target.value)}
     >
       <option value={defaultOption}>
