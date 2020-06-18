@@ -18,7 +18,7 @@ function App () {
   const handleModeChange = newModeName => {
     setSelectedModeName (newModeName);
     setSelectedLineData (null);
-    setTransportLines([]);
+    setTransportLines ([]);
     fetch (`https://api.tfl.gov.uk/Line/Mode/${newModeName}`)
       .then (results => results.json ())
       .then (data => {
@@ -30,7 +30,11 @@ function App () {
     fetch (`https://api.tfl.gov.uk/Line/${newLineId}/Route`)
       .then (results => results.json ())
       .then (data => {
-        setSelectedLineData (data.routeSections[0]);
+        if (data.routeSections) {
+          setSelectedLineData (data.routeSections[0]);
+        } else {
+          alert ('There is no destination information for ' + newLineId);
+        }
       });
   };
 
